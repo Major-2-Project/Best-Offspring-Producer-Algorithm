@@ -3,12 +3,52 @@ import java.util.*;
 //Main class
 public class SimpleDemoGA {
 
+	static void display(int n, int m)
+	{
+		int i, j;
+		for (i = 1; i <= n; i++)
+		{
+			for (j = 1; j <= m; j++)
+			{
+                if (i==1 || i==n || j==1 || (j==m && i!=4 && i!=5))             
+                System.out.print("@");	
+                else if (i==4 && j==(m-32))
+                System.out.print("@");	   
+                else if (i==5 && j==(m-26))
+                System.out.print("@");                     
+                else if (i==4 && j==57)
+                System.out.print("Best Offspring Producer Algorithm");
+                else if (i==5 && j==57)
+                    System.out.print("Genetic Algorithm          ");
+                else
+                System.out.print(" "); 
+	
+			}
+			System.out.println();
+		}
+	
+	
+        
+	}
     Population population = new Population();
     Individual fittest;
     Individual secondFittest;
     int generationCount = 0;
 
     public static void main(String[] args) {
+    	int rows = 9, columns = 135; 
+        System.out.println("\t\t\t\t\t\t            MAJOR 2 ");
+        System.out.println(); 
+       display(rows, columns); 
+        System.out.println(); 
+        System.out.println("\t\t\t\t\t\t\t           Approved by: ");
+        System.out.println();
+        System.out.println(" Mr. Abhirup Khanna  \t\t\t\t\t\t                                               " );
+        System.out.println("       [MENTOR]  \t\t\t\t\t\t\t\t                                    " );
+        System.out.println("\t\t\t\t\t\t\t           Submitted by: ");
+        System.out.println();
+        System.out.println("Ishika Mahawar [060]                     Sarthak Goyal [122] \t\t       Shreya Aggarwal [133]             \tTanisha Goyal[144]" );
+        System.out.println();
 Scanner sc=new Scanner(System.in);
         Random rn = new Random();
 
@@ -36,7 +76,7 @@ Scanner sc=new Scanner(System.in);
             demo.crossover();
 
             //Do mutation under a random probability
-            if (rn.nextInt()%7 < 5) {
+            if (rn.nextInt() < 5) {
                 demo.mutation();
             }
 
